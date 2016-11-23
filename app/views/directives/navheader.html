@@ -1,0 +1,65 @@
+<md-toolbar md-scroll-shrink class="nav-header-fixed">
+    <div class="md-toolbar-tools">
+        <!-- <div ng-controller="AnsideCtrl">
+            <md-button class="md-icon-button" ng-click="openAside('left', true)" aria-label="Menu">
+                <md-icon md-svg-icon="images/menu.svg"></md-icon>
+            </md-button>
+        </div> -->
+        
+        <h2>
+            <span ng-click="goToHome()">Salão 7</span>
+        </h2>
+        <!-- <md-button class="md-icon-button" ng-click="goToHome()" aria-label="Home">
+            <md-icon md-svg-icon="images/calendar.svg"></md-icon>
+        </md-button> -->
+
+        <span flex></span>
+        <md-button class="md-icon-button" aria-label="Professionals" ng-click="goToHome()">
+            <md-icon md-svg-icon="images/today.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Agenda
+            </md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Professionals" ng-click="goToProfessionals()">
+            <md-icon md-svg-icon="images/worker.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Profissionais
+            </md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Professionals" ng-click="goToClients()">
+            <md-icon md-svg-icon="images/face.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Clientes
+            </md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Professionals" ng-click="goToPropertyService()">
+            <md-icon md-svg-icon="images/cart.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Serviços e Promoções
+            </md-tooltip>
+        </md-button>
+        <md-button ng-if="false" class="md-icon-button" aria-label="Professionals" ng-click="">
+            <md-icon md-svg-icon="images/cash.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Financeiro
+            </md-tooltip>
+        </md-button>
+        <md-button ng-if="false" class="md-icon-button" aria-label="Professionals" ng-click="">
+            <md-icon md-svg-icon="images/truck.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Estoque
+            </md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Professionals" ng-click="logout()">
+            <md-icon md-svg-icon="images/logout.svg" style="color: white;"></md-icon>
+            <md-tooltip md-direction="buttom">
+              Sair
+            </md-tooltip>
+        </md-button>
+        <!--div layout-xs>
+            <select class="form-control select-current-property" ng-options="current as current.name for current in properties"  ng-model="currentProperty" ng-change="setCurrentProperty(currentProperty)"></select>
+        <div-->
+    </div>
+</md-toolbar>
+
+

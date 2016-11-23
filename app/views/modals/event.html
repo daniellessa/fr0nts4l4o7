@@ -1,0 +1,25 @@
+<div class="container-fluid">
+	<div class="modal-header">
+            <h3 class="modal-title">Evento</h3>
+    </div>
+	<div class="container-fluid" style="column">
+
+		<div class="col-xs-12 col-md-12">
+			<div class="container-img-circle">
+				<img class="circle-img" ng-src="{{event.user.url}}">
+			</div>
+	        <h3 class="text-center">{{event.user.name}}</h3>
+	        <p class="text-center"><i class="fa fa-mobile"></i> {{event.user.phone}}</p>
+	        <p><h5 class="text-center">{{event.service.name}}</h5></p>
+	        <p class="text-center">
+	        	<span class="bold">Início:</span> {{event.startAt | date:'dd/MM/yyyy HH:mm'}} /  
+	        	<span class="bold">Fim:</span> {{event.endsAt | date:'dd/MM/yyyy HH:mm'}}
+	        </p>
+	  	</div>
+	</div>
+	<div class="modal-footer">
+	 	<button class="btn btn-default" type="button" ng-click="cancel()">Fechar</button>
+	 	<button class="btn btn-danger" type="button" ng-click="cancelEvent()">Cancelar Evento</button>
+    </div>
+</div>
+

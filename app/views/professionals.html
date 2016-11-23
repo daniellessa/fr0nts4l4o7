@@ -1,0 +1,91 @@
+<div class="container-fluid" ng-cloak="">
+	<md-content class="md-padding container-fab-professionals container-fab-property" layout="column">
+		<div class="lock-size" layout="row" layout-align="left">
+	      <md-fab-speed-dial md-open="isOpenProperty" md-direction="right" ng-class="md-scale" class="fab-professionals">
+	        <md-fab-trigger>
+	          <md-button aria-label="menu" class="md-fab md-default" ng-click="toggleProperties()">
+	            <!--md-icon md-svg-src="images/property.svg"></md-icon-->
+	            <img class="circle-img-svg-big" ng-src="{{currentProperty.url}}">
+	            <md-tooltip md-direction="buttom">
+		          {{currentProperty.name}}
+		        </md-tooltip>
+	          </md-button>
+	        </md-fab-trigger>
+	        <md-fab-actions>
+	        	<div ng-repeat="property in properties">
+	        		<md-button ng-show="isOpenProperty" aria-label="{{property.name}}" class="md-fab md-raised md-mini" 
+	        			ng-click="changeCurrentProperty(property)">
+		            	<img class="circle-img-svg" ng-src="{{property.url}}">
+		            	<md-tooltip md-direction="buttom">
+				          {{property.name}}
+				        </md-tooltip>
+		          	</md-button>
+	        	</div>
+	        </md-fab-actions>
+	      </md-fab-speed-dial>
+	    </div>
+    </md-content>
+</div>
+
+<div class="container-fluid">
+	<div layout="row" flex ng-cloak>
+        <div flex="90">
+        	<div class="page-header">
+			  <h1>Equipe 
+			  	<small> {{currentProperty.name}}</small>
+			  </h1>
+			</div>
+        </div>
+        <div flex="10">
+        	<div class="float-right icon-new-professional">
+			  	<a href="" ng-click="createProfessional($event)">
+			  		<ng-md-icon class="icons-services" icon="person_add" style="fill: pink" size="40"></ng-md-icon>
+			  		<md-tooltip md-direction="top">
+		          		Novo profissional
+		        	</md-tooltip>
+			  	</a>
+			</div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid" style="margin-top: 40px;">
+
+	<div class="row">
+
+	  <div ng-repeat="item in professionals" class="col-xs-6 col-md-3">
+	    <div class="thumbnail">
+	      <img class="circle-img" src="{{item.user.url}}" alt="...">
+	      <div class="caption">
+	      	<h5 ng-if="!item.active" class="text-center red" ng-click="activeProfessional(item.id)">
+	      		Inativo
+	      		<md-tooltip md-direction="top">
+		          	Profissional INATIVO clique para ATIVAR
+		        </md-tooltip>
+	      	</h5>
+	      	<h5 ng-if="item.active" class="text-center green">
+	      		Ativo
+	      		<md-tooltip md-direction="top">
+		          	Profissional ATIVO
+		        </md-tooltip>
+	      	</h5>
+	        <h3 class="text-center">
+	        	{{getFirstName(item.user.name)}}
+	        	<md-tooltip md-direction="top">
+		          	{{item.user.name}}
+		        </md-tooltip>
+		        </h3>
+	        <p class="text-center">{{item.profession.name}}</p>
+	        <p class="text-center">
+	        	<a href="" ng-click="goToProfessionalPerfil(item)" class="btn btn-primary" role="button">Editar</a> 
+	        	<a href="" ng-click="removeProfessional(item.id)" class="btn btn-danger" role="button" ng-disabled="!item.active">Inativar</a>
+	        </p>
+	      </div>
+	    </div>
+	  </div>
+	
+	</div>
+
+	<!--qr text="qrcode" type-number="0" correction-level="M" size="250" input-mode="auto" image="true"></qr-->
+</div>
+

@@ -1,0 +1,43 @@
+<div ng-controller="AnsideCtrl">
+	<div layout="row" class="modal-header">
+		<div flex="20">
+			<img class="circle-img-xxs" ng-src="{{user.user.url}}">
+		</div>
+		<div flex="80">
+			<h4 style="margin-top: 10px; margin-left: 10px" class="modal-title">{{getFirstName(user.user.name)}} {{getLastName(user.user.name)}}</h4>
+		</div>
+		<div flex="20">
+			<!-- <md-button class="md-icon-button" aria-label="Config">
+            	<md-icon md-svg-icon="images/account_config.svg" style="color: gray;"></md-icon>
+        	</md-button> -->
+		</div>
+		
+	    
+	</div>
+	<div class="modal-body">
+	  <div>
+	  	<ul class="nav">
+			<li><a href="" ng-click="goToMain()">Agenda</a></li>
+		</ul>
+		<ul class="nav">
+		    <li><a href="" ng-click="goToProfessionals()">Profissionais</a></li>
+		</ul>
+		<ul class="nav">
+		    <li><a href="" ng-click="goToClients()">Clientes</a></li>
+		</ul>
+		<ul class="nav">
+	        <li><a href="" ng-click="goToPropertyService()">Serviços</a></li>
+	    </ul>
+	    <ul class="nav" ng-if="false">
+		    <li><a href="" ng-click="">Financeiro</a></li>
+		</ul>
+		<ul class="nav" ng-if="false">
+		    <li><a href="" ng-click="">Estoque</a></li>
+		</ul>
+		<ul class="nav">
+		    <li><a href="" ng-click="logout()">logout</a></li>
+		</ul>
+	  </div>
+	</div>
+	
+</div>

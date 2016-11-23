@@ -1,0 +1,229 @@
+<div class="container-fluid">
+	<div class="container-fluid">
+    	<div class="page-header">
+		  <h1>Cadastro 
+		  	<small> Dados pessoais</small>
+		  </h1>
+	    </div>
+	</div>
+</div>
+
+<div style="margin-left: 50px; margin-right: 50px;">
+
+<div class="container-fluid">
+	<form name="myForm">
+		<div layout="row" flex>
+			<div flex="50">
+	      		<div style="width: 150px; margin: 30px auto;">
+	      			<a href="" ngf-select ng-model="picFile" accept="image/*">
+	      				<img ng-if="!picFile" class="circle-img" ng-src="{{croppedDataUrlAux}}">
+	      				<img ng-if="croppedDataUrl && picFile" class="circle-img" ng-src="{{croppedDataUrl}}">
+	      			</a>
+	      		</div>
+	      	</div>
+	      	<div flex="50">
+	      		<div ng-show="picFile" ngf-drop ng-model="picFile" ngf-pattern="image/*" class="cropArea">
+			        <img-crop image="picFile  | ngfDataUrl" result-image="croppedDataUrl" ng-init="croppedDataUrl=''"></img-crop>
+			    </div>
+
+			    <div ng-if="picFile" class="buttom-save-image">
+			    	<div layout="row" flex>
+			    		<div flex="50">
+							<button class="btn btn-default btn-block" ng-click="clearImage()">cancelar</button>
+			    		</div>
+			    		<div flex="50">
+							<button class="btn btn-primary btn-block" ng-click="upload(croppedDataUrl, picFile.name)">Salvar imagem</button>
+			    		</div>
+			    	</div>
+
+			    	<span class="progress" ng-if="progress >= 0">
+			        <div style="width:{{progress}}%" ng-bind="progress + '%'"></div>
+			        </span>
+			        <span ng-show="result">Upload Successful</span>
+			        <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+	    		</div>
+			</div>
+		</div>
+ 	</form>
+      		
+  	<md-input-container class="md-block">
+        <label>Email</label>
+        <md-icon md-svg-src="images/ic_email_24px.svg"></md-icon>
+        <input type="email" required ng-model="professional.email">
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Senha</label>
+        <md-icon md-svg-src="images/key.svg"></md-icon>
+        <input type="password" required ng-model="professional.password" md-minlength="6">
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+
+    <md-input-container class="md-block">
+        <label>Confirmar senha</label>
+        <md-icon md-svg-src="images/key.svg"></md-icon>
+        <input type="password" required ng-model="confirmPassword" md-minlength="6">
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+    
+
+    <md-input-container class="md-block">
+        <label>Nome</label>
+        <md-icon md-svg-src="images/ic_person_24px.svg"></md-icon>
+        <input type="text" required ng-model="professional.user.name">
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+
+    <div layout="row" flex ng-cloak>
+    	<div flex="50">
+		    <md-input-container class="md-block">
+		        <label>Celular</label>
+		        <md-icon md-svg-src="images/ic_phone_24px.svg"></md-icon>
+		        <input type="text" required ng-model="professional.user.phone" ui-br-phone-number>
+		        <div ng-messages="projectForm.clientName.$error">
+		            <div ng-message="required">Campo obrigatório.</div>
+		        </div>
+		    </md-input-container>
+		</div>
+		<div flex="50">
+		    <md-input-container class="md-block" flex-gt-sm>
+	            <label>Sexo</label>
+	            <md-icon md-svg-src="images/ic_sex.svg"></md-icon>
+	            <md-select ng-model="professional.sex">
+	              <md-option ng-repeat="sex in sexies" value="{{sex}}">
+	                {{sex}}
+	              </md-option>
+	            </md-select>
+	        </md-input-container>
+	    </div>
+	</div>
+	<div>
+		<code>Exerce função não administrativa? ex: 'Cabeleireiro'</code>
+	</div>
+	<div layout="row">
+		<div style="margin-right: 10px; margin-top: 20px;">
+			Não
+		</div>
+		<div>
+			<md-switch ng-model="isProfessional" aria-label="isProfessional">
+    			Sim
+  			</md-switch>
+		</div>
+	</div>
+	<div ng-hide="!isProfessional">
+	    <md-input-container class="md-block" flex-gt-sm>
+	        <label>Profissão</label>
+	        <md-icon md-svg-src="images/ic_profession_24px.svg"></md-icon>
+	        <md-select ng-model="professional.profession">
+	          <md-option ng-repeat="profession in professions" value="{{profession}}">
+	            {{profession.name}}
+	          </md-option>
+	        </md-select>
+	    </md-input-container>
+
+	    <div layout="row" flex ng-cloak>
+	        <div flex="50">
+		        <md-input-container class="md-block">
+			        <label>Divisão</label>
+	            <md-icon md-svg-src="images/ic_split_24px.svg" class="name"></md-icon>
+			        <input type="number" required ng-model="professional.split">
+			        <div ng-messages="projectForm.clientName.$error">
+			          	<div ng-message="required">Campo obrigatório.</div>
+			        </div>
+			         <div class="hint">Intervalo de tempo em <code>minutos</code>, que sua agenda será dividida</div>
+		      	</md-input-container>
+	        </div> 
+	        <div flex="50"> 
+	           <md-input-container class="md-block">
+			        <label>Intervalo</label>
+	            <md-icon md-svg-src="images/ic_interval_24px.svg" class="name"></md-icon>
+			        <input type="number" required ng-model="professional.interval">
+			        <div ng-messages="projectForm.clientName.$error">
+			          	<div ng-message="required">Campo obrigatório.</div>
+			        </div>
+			        <div class="hint">Tempo em <code>minutos</code> que será adicionado entre os agendamentos</div>
+		      	</md-input-container>
+	        </div>  
+	    </div>
+    </div>
+</div>
+
+
+</div>
+
+
+
+<div class="container-fluid">
+	<div class="container-fluid">
+    	<div class="page-header">
+		  <h1>Cadastro 
+		  	<small> Dados do estabelecimento</small>
+		  </h1>
+	    </div>
+	</div>
+</div>
+
+<div style="margin-left: 50px; margin-right: 50px;">
+<div class="container-fluid">
+	 <md-input-container class="md-block">
+        <label>Nome do salão</label>
+        <md-icon md-svg-src="images/ic_person_24px.svg"></md-icon>
+        <input type="text" required ng-model="professional.user.name">
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+    </md-input-container>
+
+    <div layout="row" flex ng-cloak>
+    	<div flex="50">
+		    <md-input-container class="md-block">
+		        <label>Telefone 1</label>
+		        <md-icon md-svg-src="images/phone.svg"></md-icon>
+		        <input type="text" required ng-model="property.firstPhone" ui-br-phone-number>
+		        <div ng-messages="projectForm.clientName.$error">
+		            <div ng-message="required">Campo obrigatório.</div>
+		        </div>
+		    </md-input-container>
+		</div>
+		<div flex="50">
+		    <md-input-container class="md-block">
+		        <label>Telefone 2 (caso exista)</label>
+		        <md-icon md-svg-src="images/phone.svg"></md-icon>
+		        <input type="text" ng-model="property.secondPhone" ui-br-phone-number>
+		    </md-input-container>
+	    </div>
+	</div>
+
+    <md-input-container class="md-block">
+        <label>Endereço</label>
+        <md-icon md-svg-src="images/marker.svg"></md-icon>
+        <input required g-places-autocomplete ng-model="place" ng-change="setMarker()"/>
+        <div ng-messages="projectForm.clientName.$error">
+            <div ng-message="required">Campo obrigatório.</div>
+        </div>
+        <div class="hint">Use o mapa abaixo para colocar o marcador na posição exata após digitar o endereço</div>
+    </md-input-container>
+    
+</div>
+</div>
+
+<div>
+	<!-- <div map-lazy-load="https://maps.google.com/maps/api/js"
+  		map-lazy-load-params="{{googleMapsUrl}}">
+  		<ng-map center="41,-87" zoom="3"></ng-map>
+	</div> -->
+</div>
+
+<div class="buttom-finish-new-property">
+	<md-button class="md-raised" ng-click="cancel()">Cancelar</md-button>
+	<md-button class="md-raised md-primary">Salvar</md-button>
+</div>

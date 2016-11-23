@@ -1,0 +1,100 @@
+
+<md-dialog aria-label="Autocomplete Dialog Example" ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>Novo evento</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-src="images/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+
+    <div class="md-dialog-content">
+
+    	<div class="container-create-event">
+
+		    <md-input-container class="md-block" flex-gt-sm>
+		        <label>Profissional</label>
+		        <input ng-model="professional.user.name" disabled>
+		    </md-input-container>
+
+			<md-input-container class="md-block" flex-gt-sm>
+		        <label>Data</label>
+		        <input ng-model="startAt" disabled ui-date-mask>
+		    </md-input-container>
+
+		    <div layout="row">
+	    		<div flex="50">
+	    			<md-input-container class="md-block" flex-gt-sm>
+				        <label>Início</label>
+				        <input ng-model="startTime" ui-time-mask="short" disabled>
+			    	</md-input-container>
+	    		</div>
+			    
+	    		<div flex="50">
+	    			<md-input-container class="md-block" flex-gt-sm>
+				        <label>Fim</label>
+				        <input ng-model="endsTime" ui-time-mask="short">
+			    	</md-input-container>
+	    		</div>
+	        </div>
+
+			<md-input-container class="md-block" flex-gt-sm>
+	            <label>Tipo de evento</label>
+	            <md-select ng-model="type">
+	              <md-option ng-repeat="type in types" value="{{type.id}}">
+	                {{type.name}}
+	              </md-option>
+	            </md-select>
+	  		</md-input-container>
+
+	  		<md-input-container ng-show="type == 3" class="md-block" flex-gt-sm>
+		        <label>Titulo</label>
+		        <input type="text" ng-model="title">
+		    </md-input-container>
+
+	  		<md-input-container ng-show="type == 1" class="md-block" flex-gt-sm>
+	            <label>Selecionar serviço</label>
+	            <md-select ng-model="serviceName" ng-change="changeService()">
+	              <md-option ng-repeat="item in services" value="{{item.service.name}}">
+	                {{item.service.name}}
+	              </md-option>
+	            </md-select>
+	  		</md-input-container>
+			
+		    <md-autocomplete ng-if="type == 1"
+		          ng-disabled="isDisabled"
+		          md-no-cache="noCache"
+		          md-selected-item="selectedItem"
+		          md-search-text-change="searchTextChange(searchText)"
+		          md-search-text="searchText"
+		          md-selected-item-change="selectedItemChange(item)"
+		          md-items="item in querySearch(searchText)"
+		          md-item-text="item.name"
+		          md-min-length="0"
+		          placeholder="Buscar cliente"
+		          md-menu-class="autocomplete-custom-template">
+		        <md-item-template>
+		          <span class="item-title">
+		            <img class="circle-img-xxs" ng-src="{{item.url}}">
+		            <span> {{item.name}} </span>
+		          </span>
+		          <!--span class="item-metadata">
+		            <span class="item-metastat">
+		              Telefone: <strong>{{item.phone}}</strong> 
+		            </span>
+		          </span-->
+		        </md-item-template>
+		    </md-autocomplete>		   
+
+		</div>
+
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button aria-label="Finished" ng-click="createEvent($event)">Salvar</md-button>
+  </md-dialog-actions>
+</md-dialog>
+

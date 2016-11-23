@@ -1,0 +1,129 @@
+<div class="container-select-professional-calendar" ng-cloak="">
+	<div layout="row" flex>
+		<div flex="70">
+			<md-content class="md-padding container-fab-professionals" layout="column">
+				<div class="lock-size" layout="row" layout-align="left">
+			      <md-fab-speed-dial md-open="isOpen" md-direction="right" ng-class="md-scale" class="fab-professionals">
+			        <md-fab-trigger>
+			          <md-button aria-label="menu" class="md-fab md-default" ng-click="toggleProfessionals()">
+			            <md-icon md-svg-src="images/worker.svg"></md-icon>
+			            <md-tooltip md-direction="buttom">
+				          Profissionais
+				        </md-tooltip>
+			          </md-button>
+			        </md-fab-trigger>
+			        <md-fab-actions>
+			        	<div ng-repeat="professional in professionals">
+			        		<md-button ng-show="isOpen" aria-label="{{professional.user.name}}" class="md-fab md-raised md-mini" 
+			        			ng-click="changeCurrentProfessional(professional)">
+				            	<img class="circle-img-svg" ng-src="{{professional.user.url}}">
+				            	<md-tooltip md-direction="buttom">
+						          {{professional.user.name}}
+						        </md-tooltip>
+				          	</md-button>
+			        	</div>
+			        </md-fab-actions>
+			      </md-fab-speed-dial>
+			    </div>
+		    </md-content>
+	    </div>
+	    <div flex="30">
+			<md-content class="md-padding container-fab-professionals float-right" layout="column">
+				<div class="lock-size" layout="row" layout-align="left">
+			      <md-fab-speed-dial md-open="isOpenProperty" md-direction="left" ng-class="md-scale" class="fab-professionals">
+			        <md-fab-trigger>
+			          <md-button aria-label="menu" class="md-fab md-default" ng-click="toggleProperties()">
+			            <!--md-icon md-svg-src="images/property.svg"></md-icon-->
+			            <img class="circle-img-svg-big" ng-src="{{currentProperty.url}}">
+			            <md-tooltip md-direction="buttom">
+				          {{currentProperty.name}}
+				        </md-tooltip>
+			          </md-button>
+			        </md-fab-trigger>
+			        <md-fab-actions>
+			        	<div ng-repeat="property in properties">
+			        		<md-button ng-show="isOpenProperty" aria-label="{{property.name}}" class="md-fab md-raised md-mini" 
+			        			ng-click="changeCurrentProperty(property)">
+				            	<img class="circle-img-svg" ng-src="{{property.url}}">
+				            	<md-tooltip md-direction="buttom">
+						          {{property.name}}
+						        </md-tooltip>
+				          	</md-button>
+			        	</div>
+			        </md-fab-actions>
+			      </md-fab-speed-dial>
+			    </div>
+		    </md-content>
+	    </div>
+    </div>
+</div>
+
+<div class="container-fluid" ng-cloack>
+	<div layout="row" flex class="container-calendar-control">	
+			
+		<div flex>
+			<div class="icons-calendar-container col-md-4 ">
+		      <ul class="pager">
+		      	<li><a href="" mwl-date-modifier date="calendarDate" decrement="calendarView">
+		          Anterior
+		        </li></a>
+		        <li><a href="" mwl-date-modifier date="calendarDate" set-to-today>
+		          Hoje
+		        </li></a>
+		        <li><a href="" mwl-date-modifier date="calendarDate" increment="calendarView">
+		          Próximo
+		        </li></a>
+		      </ul>
+		    </div>
+		</div>
+		
+		<div flex>	
+			<div class="icons-calendar-container col-md-4 " style="margin-top: 15px;">
+	    		<img class="circle-img-svg" ng-src="{{currentProfessional.user.url}}"> 
+	    			<md-tooltip md-direction="top">
+			          {{currentProfessional.user.name}}
+			        </md-tooltip>
+	    		</img>
+	    		<h4>{{calendarTitle}}</h4>
+	    	</div>
+		</div>
+	    	
+	    <div flex>	
+			<div class="icons-calendar-container col-md-4 ">
+		      <ul class="pager">
+		        <li><a href="" ng-model="calendarView" uib-btn-radio="'year'">Ano</li></a>
+		        <li><a href="" ng-model="calendarView" uib-btn-radio="'month'">Mês</li></a>
+		        <li><a href="" ng-model="calendarView" uib-btn-radio="'week'">Semana</li></a>
+		        <li><a href="" ng-model="calendarView" uib-btn-radio="'day'">Dia</li></a>
+		      </ul>
+		    </div>
+		</div>	
+	</div>
+</div>
+
+
+<div class="container-fluid">
+	<div layout="row">
+		<div flex>
+			<mwl-calendar
+			    view="calendarView"
+			    view-date="calendarDate"
+			    events="events"
+			    view-title="calendarTitle"
+			    on-event-click="onClickEvent($event, calendarEvent)"
+			    on-event-times-changed="eventTimesChanged(calendarEvent, calendarNewEventStart, calendarNewEventEnd);"
+			    on-date-range-select="rangeSelected($event, calendarRangeStartDate, calendarRangeEndDate)"
+			    edit-event-html="'<i class=\'glyphicon glyphicon-pencil\'></i>'"
+			    delete-event-html="'<i class=\'glyphicon glyphicon-remove\'></i>'"
+			    on-edit-event-click="eventEdited(calendarEvent)"
+			    on-delete-event-click="eventDeleted(calendarEvent)"
+			    cell-is-open="isCellOpen"
+			    day-view-start="{{workStarts}}"
+			    day-view-end="{{workEnds}}"
+			    day-view-split="{{split}}"
+			    slide-box-disabled="true"
+			    on-timespan-click="goToDay(calendarDate)">
+			</mwl-calendar>
+		</div>
+	</div>	
+</div>

@@ -1,0 +1,108 @@
+<div class="container-fluid" ng-cloak="">
+	<md-content class="md-padding container-fab-professionals container-fab-property" layout="column">
+		<div class="lock-size" layout="row" layout-align="left">
+	      <md-fab-speed-dial md-open="isOpenProperty" md-direction="right" ng-class="md-scale" class="fab-professionals">
+	        <md-fab-trigger>
+	          <md-button aria-label="menu" class="md-fab md-default" ng-click="toggleProperties()">
+	            <!--md-icon md-svg-src="images/property.svg"></md-icon-->
+	            <img class="circle-img-svg-big" ng-src="{{currentProperty.url}}">
+	            <md-tooltip md-direction="buttom">
+		          {{currentProperty.name}}
+		        </md-tooltip>
+	          </md-button>
+	        </md-fab-trigger>
+	        <md-fab-actions>
+	        	<div ng-repeat="property in properties">
+	        		<md-button ng-show="isOpenProperty" aria-label="{{property.name}}" class="md-fab md-raised md-mini" 
+	        			ng-click="changeCurrentProperty(property)">
+		            	<img class="circle-img-svg" ng-src="{{property.url}}">
+		            	<md-tooltip md-direction="buttom">
+				          {{property.name}}
+				        </md-tooltip>
+		          	</md-button>
+	        	</div>
+	        </md-fab-actions>
+	      </md-fab-speed-dial>
+	    </div>
+    </md-content>
+</div>
+
+<div class="container-fluid">
+	<div class="page-header">
+	  <h1>Clientes <small>{{currentProperty.name}}</small></h1>
+	</div>
+	<div layout="row" flex ng-cloak>
+		<div flex="50">
+			 
+		</div>
+		<div flex="50">
+			<div class="float-right">
+			  	<a ng-if="!haveForDelete()" href="" ng-click="createClient($event)">
+			  		<ng-md-icon class="icons-services" icon="add_circle_outline" style="fill: pink" size="40"></ng-md-icon>
+			  		<md-tooltip md-direction="top">
+		          		Novo Cliente
+		        	</md-tooltip>
+			  	</a>
+			  	<a ng-if="haveForDelete()" href="" ng-click="deleteServices()">
+			  		<ng-md-icon class="icons-services" icon="delete" style="fill: pink" size="40"></ng-md-icon>
+			  		<md-tooltip md-direction="top">
+		          		Excluir selecionados
+		        	</md-tooltip>
+			  	</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container-fluid" style="">
+	<div>
+		<md-toolbar class="md-table-toolbar md-default">
+		  <div class="md-toolbar-tools">
+		    <span>Lista de clientes cadastrados</span>
+		  </div>
+		</md-toolbar>
+
+		<!-- exact table from live demo -->
+		<md-table-container>
+		  <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+		    <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+		      <tr md-row>
+		      	<th md-column>foto</th>
+		        <th md-column md-order-by="nameToLower">Nome</span></th>
+		        <th md-column><span>Telefone</span></th>
+		        <th md-column md-numeric md-order-by="sex">Sexo</th>
+		        <th md-column md-numeric></th>
+		        <th md-column md-numeric></th>
+		      </tr>
+		    </thead>
+		    <tbody md-body>
+		      <tr md-row md-select="item" md-select-id="name"  ng-repeat="item in clients">
+		      	<td md-cell><img class="circle-img-svg" ng-src="{{item.url}}"> </td>
+		        <td md-cell>{{item.name}}</td>
+		        <td md-cell>{{item.phone}}</td>
+		        <td md-cell>{{item.sex}}</td>
+		        <td md-cell ng-click="editClient(item, $event)">
+		        	<a href="">
+				  		<ng-md-icon icon="mode_edit" style="fill: pink" size="30"></ng-md-icon>
+				  		<md-tooltip md-direction="top">
+			          		Editar
+			        	</md-tooltip>
+				  	</a>
+	  			</td>
+	  			<td md-cell ng-click="deleteClient(item.id, $event)">
+		        	<a href="">
+				  		<ng-md-icon icon="delete" style="fill: pink" size="30"></ng-md-icon>
+				  		<md-tooltip md-direction="top">
+			          		Excluir
+			        	</md-tooltip>
+				  	</a>
+	  			</td>
+		      </tr>
+		    </tbody>
+		  </table>
+		</md-table-container>
+
+		<md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+	</div>
+</div>

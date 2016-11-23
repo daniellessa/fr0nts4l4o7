@@ -1,0 +1,500 @@
+// bower:scss
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* start float buttom */
+.fabSpeedDialdemoBasicUsage .text-capitalize {
+  text-transform: capitalize; }
+.fabSpeedDialdemoBasicUsage .md-fab:hover, .fabSpeedDialdemoBasicUsage .md-fab.md-focused {
+  background-color: #000 !important; }
+.fabSpeedDialdemoBasicUsage p.note {
+  font-size: 1.2rem; }
+.fabSpeedDialdemoBasicUsage .lock-size {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto; }
+/* ends float buttom */
+
+.container-login {
+  width: 500px;
+  margin: 150px auto;
+
+  border-radius: 25px;
+  border: 1px solid #CBCBCB;
+  padding: 20px;
+
+  -webkit-box-shadow: 10px 10px 5px -4px rgba(230,227,230,1);
+  -moz-box-shadow: 10px 10px 5px -4px rgba(230,227,230,1);
+  box-shadow: 10px 10px 5px -4px rgba(230,227,230,1);
+}
+
+.container-logo-login {
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+/* better-placeholders*/
+.better-placeholder {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+.better-placeholder::-webkit-input-placeholder {
+  display: none;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.better-placeholder::-moz-placeholder {
+  display: none;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.better-placeholder:-ms-input-placeholder {
+  display: none;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.better-placeholder::placeholder {
+  display: none;
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+.better-placeholder.better-placeholder-active {
+  padding: 18px 12px 6px 12px;
+  height: auto;
+}
+.has-error .better-placeholder-text {
+  color: #a94442;
+}
+.has-error .better-placeholder-text.active {
+  color: #a94442;
+}
+.has-success .better-placeholder-text {
+  color: #3c763d;
+}
+.has-success .better-placeholder-text.active {
+  color: #3c763d;
+}
+.has-warning .better-placeholder-text {
+  color: #8a6d3b;
+}
+.has-warning .better-placeholder-text.active {
+  color: #8a6d3b;
+}
+.better-placeholder-text {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: absolute;
+  top: 2px;
+  margin-left: 12px;
+  line-height: 20px;
+  height: 20px;
+  color: #888;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  max-width: 85%;
+/* You have to fiddle with this and it .active replacement depending on size of field */
+  margin-right: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.better-placeholder-text.active {
+  max-width: 110%;
+  visibility: visible;
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+  color: #428bca;
+  top: -2px;
+}
+/*ends better-plcaholders*/
+
+/* start cropImage */
+.cropArea {
+    background: #E4E4E4;
+    overflow: hidden;
+    width:300px;
+    height:180px;
+    margin: 10px auto;
+}
+form .progress {
+    line-height: 15px;
+}
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+.buttom-save-image {
+  width:300px;
+  margin: 0 auto;
+}
+/* ends cropImage */
+
+/* start autocompletedemoCustomTemplate */
+.autocompletedemoCustomTemplate .autocomplete-custom-template li {
+  border-bottom: 1px solid #ccc;
+  height: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  white-space: normal; 
+}
+.autocompletedemoCustomTemplate .autocomplete-custom-template li:last-child {
+  border-bottom-width: 0; 
+}
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title,
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-metadata {
+  display: block;
+  line-height: 2; 
+}
+.autocompletedemoCustomTemplate .autocomplete-custom-template .item-title md-icon {
+  height: 18px;
+  width: 18px; 
+}
+/* end autocompletedemoCustomTemplate*/
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.navbar {
+  height: 65px;
+}
+
+.navbar-transparent {
+  background-color: #FFFFFF;
+  background: #FFFFFF;
+  border-color: #CBCBCB;
+}
+
+.container-calendar-control {
+  width: 900px;
+  margin: 0px auto;
+}
+
+.select-professional-margin {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.border {
+  border: 1px solid;
+}
+
+.select-current-property {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.icon-property {
+  margin-top: 15px;
+}
+
+.select-current-property-container {
+  width: 305px;
+  margin-top: 15px;
+  margin-right: 15px;
+  float: right;
+}
+
+.logo-container {
+  width: 300px;
+  margin: 10px auto;
+  margin-left: 15px;
+  float: left;
+}
+
+.small-icon-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.retangle-img {
+  display: inline-block;
+  width: 80px;
+  height: 40px;
+  border-radius: 15%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0px auto;
+}
+
+.circle-img {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0px auto;
+}
+
+.circle-img-xxs {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin: 0px auto;
+}
+
+.circle-img-svg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: -6px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.circle-img-svg-big {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-left: -6px;
+  margin-top: -3px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.container-img-circle {
+  width: 151px;
+  margin: 10px auto;
+}
+
+.ng-aside .modal-content {
+  min-width: 320px;
+}
+
+.icons-calendar-container {
+  width: 300px;
+  text-align: center;
+}
+
+.icons-options-calendar-right {
+  width: 40px;
+  height: 40px;
+  margin-right: 45px;
+  margin-top: 22px;
+  float: right;
+}
+
+.icons-options-calendar-left {
+  margin-right: 45px;
+}
+
+.container-create-event {
+  width: 410px;
+  margin: 30px auto;
+}
+
+.form-create-event {
+  width: 400px;
+  margin: 15px;
+}
+
+.container-times {
+  width: 480px;
+  margin: 0 auto;
+}
+
+.titles-times {
+  margin-top: 40px;
+}
+
+.title-create-event {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.icons-services {
+  width: 50px;
+  height: 50px;
+}
+
+.icon-new-professional {
+  margin-right: 30px;
+  margin-top: 45px;
+}
+
+.container-select-professional-calendar {
+  margin-top: 60px;
+}
+.absolute {
+  position: absolute;
+}
+
+.nav-header-fixed {
+  position: fixed;
+  z-index: 100;
+}
+
+.container-fab-professionals {
+  padding-bottom: 0px;
+  padding-top: 5px;
+}
+
+.fab-professionals {
+  z-index: 1;
+}
+
+.container-fab-property {
+  margin-top: 70px;
+}
+
+.page-header {
+  margin-top: 0px;
+}
+
+.angular-google-map-container { 
+  margin-left: 70px;
+  margin-right: 70px;
+  width: 800px;
+  height: 400px; 
+}
+
+.buttom-finish-new-property {
+  float: right;
+  margin-top: 30px;
+  margin-right: 70px;
+  margin-bottom: 40px;
+}
+
+.hint {
+  color: gray;
+}
+
+.red {
+  color: #993333;
+}
+
+.green {
+  color: #3DB03D;
+}
+
+
+

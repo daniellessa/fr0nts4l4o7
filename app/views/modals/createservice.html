@@ -1,0 +1,61 @@
+<md-dialog aria-label="Autocomplete Dialog Example" ng-cloak>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>{{titleModal}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="cancel()">
+        <md-icon md-svg-src="images/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content>
+    <div class="md-dialog-content">
+      <form ng-submit="$event.preventDefault()">
+        <p>Use o<code>campo abaixo</code> para encontrar serviços já disponíveis ou incluir novos</p>
+
+        <md-autocomplete
+            md-selected-item="selectedItem"
+            md-search-text="searchText"
+            md-items="item in querySearch(searchText)"
+            md-item-text="item.display"
+            md-min-length="0"
+            placeholder="Qual serviço deseja cadastrar?">
+          <md-item-template>
+            <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.display}}</span>
+          </md-item-template>
+          <md-not-found> 
+            <code ng-click="addService(searchText)">Adicionar "{{searchText}}" à lista</code>
+          </md-not-found>
+        </md-autocomplete>
+
+        <div class="" style="margin-top: 55px;">
+	        <md-input-container class="md-block">
+		        <label>Breve descrição</label>
+		        <input type="text" required name="description" ng-model="description">
+		        <div ng-messages="projectForm.clientName.$error">
+		          	<div ng-message="required">Campo obrigatório.</div>
+		        </div>
+	      	</md-input-container>
+
+	      	<md-input-container class="md-block">
+		        <label>Preço R$</label>
+		        <input type="text" required name="oldPrice" ng-model="oldPrice" ui-money-mask>
+		        <div ng-messages="projectForm.clientName.$error">
+		          	<div ng-message="required">Campo obrigatório.</div>
+		        </div>
+	      	</md-input-container>
+
+	      	<md-input-container class="md-block">
+		        <label>Preço promocional R$ (caso exista)</label>
+		        <input type="text" name="price" ng-model="price" ui-money-mask>
+	      	</md-input-container>
+      	</div>
+
+      </form>
+    </div>
+  </md-dialog-content>
+  <md-dialog-actions>
+    <md-button aria-label="Finished" ng-click="addServiceInTheProperty($event)">{{titleButtom}}</md-button>
+  </md-dialog-actions>
+</md-dialog>
+
